@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FractureFuseNet: Phase 1 Summary & Architectural Changes Explanation</title>
+<style>
+  @page {
+    size: A4;
+    margin: 12mm 12mm 12mm 12mm;
+  }
+
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', Arial, sans-serif;
+    color: #1e293b;
+    line-height: 1.48;
+    font-size: 8.8pt;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header-card {
+    border-bottom: 2.5px solid #1d4ed8;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+
+  .header-badge {
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 2.5px 9px;
+    border-radius: 9999px;
+    font-size: 7.8pt;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  h1 {
+    color: #0f172a;
+    font-size: 15.5pt;
+    margin: 2px 0 5px 0;
+    font-weight: 700;
+  }
+
+  .meta-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 8.2pt;
+    color: #475569;
+    margin-top: 5px;
+  }
+
+  .meta-item {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    padding: 2.5px 8px;
+    border-radius: 4px;
+  }
+
+  .meta-item strong {
+    color: #0f172a;
+  }
+
+  h2 {
+    color: #1e3a8a;
+    font-size: 11pt;
+    margin-top: 13px;
+    margin-bottom: 5px;
+    border-left: 4px solid #2563eb;
+    padding-left: 7px;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    color: #1e293b;
+    font-size: 9.5pt;
+    margin-top: 9px;
+    margin-bottom: 3px;
+    page-break-after: avoid;
+  }
+
+  p {
+    margin: 4px 0;
+    text-align: justify;
+  }
+
+  ul, ol {
+    margin: 4px 0;
+    padding-left: 16px;
+  }
+
+  li {
+    margin-bottom: 2.5px;
+  }
+
+  .alert {
+    border-radius: 5px;
+    padding: 8px 11px;
+    margin: 8px 0;
+    font-size: 8.5pt;
+    page-break-inside: avoid;
+  }
+
+  .alert-warning {
+    background-color: #fffbeb;
+    border: 1px solid #fde68a;
+    border-left: 4px solid #f59e0b;
+    color: #92400e;
+  }
+
+  .alert-info {
+    background-color: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-left: 4px solid #2563eb;
+    color: #1e3a8a;
+  }
+
+  .alert-success {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid #16a34a;
+    color: #14532d;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 7px 0;
+    font-size: 7.8pt;
+    page-break-inside: avoid;
+  }
+
+  th {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    font-weight: 700;
+    text-align: left;
+    padding: 4.5px 6px;
+    border: 1px solid #cbd5e1;
+  }
+
+  td {
+    padding: 3.8px 6px;
+    border: 1px solid #e2e8f0;
+    vertical-align: middle;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  .badge-passed {
+    background-color: #dcfce7;
+    color: #166534;
+    padding: 1.5px 5.5px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 7.2pt;
+  }
+
+  .badge-warn {
+    background-color: #fef3c7;
+    color: #92400e;
+    padding: 1.5px 5.5px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 7.2pt;
+  }
+
+  .badge-danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+    padding: 1.5px 5.5px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 7.2pt;
+  }
+
+  pre, code {
+    font-family: 'Consolas', 'Courier New', monospace;
+  }
+
+  pre {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 7px 9px;
+    border-radius: 4px;
+    font-size: 7.4pt;
+    margin: 5px 0;
+    line-height: 1.32;
+    page-break-inside: avoid;
+  }
+
+  .code-inline {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    padding: 1px 3.5px;
+    border-radius: 3px;
+    font-size: 7.6pt;
+    border: 1px solid #e2e8f0;
+  }
+
+  .footer-note {
+    margin-top: 14px;
+    border-top: 1px solid #cbd5e1;
+    padding-top: 5px;
+    font-size: 7.5pt;
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+    page-break-inside: avoid;
+  }
+
+  .page-break {
+    page-break-after: always;
+  }
+
+  .math-box {
+    background-color: #f8fafc;
+    border-left: 3px solid #64748b;
+    padding: 5px 10px;
+    margin: 4px 0;
+    font-style: italic;
+    color: #334155;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: EXECUTIVE BRIEF & THE 3x224x224 EXPLANATION -->
+<div class="header-card">
+  <span class="header-badge">CSE438 • Project 12 • Technical Explanatory Document</span>
+  <h1>FractureFuseNet: Phase 1 Summary & Architectural Changes Explanation</h1>
+  <div class="meta-grid">
+    <div class="meta-item"><strong>Topic:</strong> Multimodal Late Fusion of Deep Features & Classical Edge/Hough Line Detection</div>
+    <div class="meta-item"><strong>Scope:</strong> Phase 1 Preprocessing Audit, Architectural Rationale & Design Modifications</div>
+    <div class="meta-item"><strong>Date:</strong> November 2026</div>
+  </div>
+</div>
+
+<h2>PART 1: Brief Summary of All Phase 1 Work</h2>
+<p>
+In Phase 1, we audited, debugged, and standardized the raw <em>Human Bone Fractures Multi-modal Image Dataset</em> (HBFMID) into a mathematically validated, leakage-free PyTorch multimodal pipeline:
+</p>
+<ol>
+  <li><strong>Dataset Integrity Audit:</strong> Audited <strong>1,539 images</strong> (640 × 640 RGB) and <strong>1,539 YOLO annotations</strong> (1,771 bounding boxes). Confirmed 0 corrupt images, uniform dimensions, and 0 invalid bounding box coordinates.</li>
+  <li><strong>Annotation Cleaning & Disambiguation:</strong> Evaluated all multi-box images. Preserved <strong>1,429 clean single-label images</strong> (1,423 unanimous + 6 strict majority). Safely excluded <strong>110 ambiguous records</strong> (107 multi-class ties + 3 empty label files) with complete audit trail logging in <span class="code-inline">excluded_records_audit_log.csv</span>.</li>
+  <li><strong>Eliminating Roboflow's 40.8% Data Leakage:</strong> Discovered Roboflow's original split leaked augmented copies across train and test (40.82% base ID leakage, 12.79% perceptual duplicate leakage). Solved this using <strong>dihedral perceptual hashing (<span class="code-inline">pHash</span> + <span class="code-inline">dHash</span> ≤ 10)</strong>, discovering <strong>657 true source clusters</strong> (matching the ~641 raw radiographs reported by Mendeley).</li>
+  <li><strong>Group-Aware Stratified Splitting (60:20:20):</strong> Implemented 5-fold <span class="code-inline">StratifiedGroupKFold</span> on the 1,429 clean images grouped by composite <span class="code-inline">group_id</span>. Achieved <strong>0.00% cross-split leakage</strong> (Train: 857, Valid: 285, Test: 287).</li>
+  <li><strong>Pigeonhole Principle Proof on Rare Class (<span class="code-inline">Segmental</span>):</strong> Proved that <span class="code-inline">Segmental</span> has only 8 clean images from 2 source groups (<span class="code-inline">70_jpg</span> and <span class="code-inline">225_jpg</span>). Mathematically, $n=2$ groups cannot populate $k=3$ splits without leakage. Placed them in Train (5) and Valid (3) with 0 in the fixed Test split, while evaluating 100% of them out-of-fold across 5-fold cross-validation.</li>
+  <li><strong>Modality Confounding Audit (X-ray vs MRI):</strong> Discovered 64.6% of <span class="code-inline">Comminuted</span> fractures are MRI scans, while 5 classes have 0% MRI. Established <strong>X-ray ($N=1,227$) as the primary benchmark</strong> to prevent the model from learning "MRI texture = fracture" shortcuts.</li>
+  <li><strong>Classical 64-Dimensional Feature Extraction:</strong> Extracted 64 structural features from full-resolution radiographs via CLAHE, multi-threshold Canny edge detection, Hough Transform lines, circular orientation statistics ($2	heta$), and Sobel gradients.</li>
+  <li><strong>Cluster-Level Statistical Hypothesis Testing:</strong> Corrected pseudoreplication (which inflated naive p-values by up to $1.5 	imes 10^7	imes$). Conducted 10,000 permutation tests on $N=496$ independent clusters with Holm and Benjamini-Hochberg FDR adjustments. Proved classical features capture macro-anatomical structure (Cliff's $\delta = -0.698$, $p &lt; 10^{-4}$).</li>
+  <li><strong>PyTorch Multimodal Pipeline & Automation:</strong> Built a PyTorch DataLoader pipeline with shared geometric transform symmetry, train-only <span class="code-inline">StandardScaler</span> provenance, Focal Loss validation, 16/16 unit tests, and a 12/12-check master pipeline runner (<span class="code-inline">run_phase1_pipeline.py</span>) executing in 14.2s.</li>
+</ol>
+
+<hr style="border: 0; border-top: 1px solid #cbd5e1; margin: 10px 0;">
+
+<h2>PART 2: Detailed Architectural Changes & Scientific Explanations</h2>
+
+<h3>1. Why convert the image into 3 × 224 × 224? What is "3" here?</h3>
+<p>
+In PyTorch, 2D convolutional layers represent images as 3-dimensional tensors:
+</p>
+<div class="math-box">
+  $$	ext{Tensor Shape} = (	ext{Channels}, 	ext{Height}, 	ext{Width}) = (C, H, W)$$
+</div>
+
+<h4>A. What is "3" here?</h4>
+<ul>
+  <li><strong>`3` represents the 3 color channels: Red, Green, and Blue (RGB).</strong></li>
+  <li><em>The core question:</em> Medical X-rays and MRI scans are monochrome (grayscale) images. Why do we encode them into 3 channels instead of 1?</li>
+  <li><strong>The Reason (Pretrained Transfer Learning):</strong> Standard state-of-the-art vision backbones (e.g., <strong>ResNet-50, EfficientNet-B0, DenseNet-121, ConvNeXt</strong>) were pretrained on the ImageNet dataset (1.2 million natural color photos). The very first convolutional layer (<span class="code-inline">conv1</span>) of these networks strictly expects an input with <strong><span class="code-inline">in_channels = 3</span></strong>:
+    <pre style="margin: 3px 0;">nn.Conv2d(in_channels=3, out_channels=64, kernel_size=7, stride=2, padding=3, bias=False)</pre>
+  </li>
+  <li>If we fed a 1-channel grayscale tensor <span class="code-inline">(1, 224, 224)</span>:
+    <ul>
+      <li>PyTorch throws a shape mismatch runtime error: <em>"Expected 3 channels, got 1"</em>.</li>
+      <li>To bypass the error, you would have to replace the first layer with <span class="code-inline">in_channels=1</span> and randomly re-initialize its weights. Doing that <strong>destroys all pretrained ImageNet low-level feature detectors</strong> (Gabor edge, texture, and curve filters) learned by the network!</li>
+    </ul>
+  </li>
+  <li><strong>Our Solution:</strong> We broadcast the grayscale radiograph across all three channels ($R = G = B$). This allows the pretrained CNN to immediately utilize its rich pretrained feature representations without architectural alterations or loss of transfer learning capability.</li>
+</ul>
+
+<h4>B. Why 224 × 224?</h4>
+<p>
+The raw images in the dataset are $640 	imes 640$ pixels. Resizing to $224 	imes 224$ serves three critical purposes:
+</p>
+<ol>
+  <li><strong>Standard Architecture Resolution:</strong> $224 	imes 224$ is the canonical input resolution for which ResNet, DenseNet, and EfficientNet architectures were designed and benchmarked.</li>
+  <li><strong>Computational & Memory Efficiency:</strong>
+    <ul>
+      <li>A $640 	imes 640$ image contains <strong>409,600 pixels</strong>.</li>
+      <li>A $224 	imes 224$ image contains <strong>50,176 pixels</strong> — an <strong>8.16× reduction in memory and FLOPs</strong>!</li>
+      <li>Training deep CNNs on $640 	imes 640$ exhausts GPU VRAM, forcing tiny batch sizes (e.g. 2 or 4) that destabilize Batch Normalization. At $224 	imes 224$, standard batch sizes of 16, 32, or 64 run smoothly.</li>
+    </ul>
+  </li>
+  <li><strong>The Core Innovation of FractureFuseNet (Dual-Branch Resolution Strategy):</strong>
+    <ul>
+      <li><em>Won't downsampling from 640 to 224 blur thin hairline fractures?</em> Yes! That is <strong>the exact reason standard CNNs struggle with fine fractures</strong>.</li>
+      <li>In <strong>FractureFuseNet</strong>, we resolve this through our dual-branch design:
+        <ul>
+          <li><strong>Branch A (Deep CNN):</strong> Receives the resized <strong>$224 	imes 224$</strong> image to capture <em>global anatomical context</em> (e.g. recognizing whether the bone is a femur, ulna, radius, or tibia).</li>
+          <li><strong>Branch B (Classical Edge/Hough):</strong> Operates on the <strong>native full-resolution $640 	imes 640$ image</strong>! It detects sharp linear discontinuities, cortical steps, and edge gradients at sub-millimeter pixel precision.</li>
+        </ul>
+      </li>
+      <li>Both representations are fused at the classifier head (Late Fusion). This gives both global contextual understanding and full-resolution fracture edge precision.</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="page-break"></div>
+
+<!-- PAGE 2: OTHER MAJOR CHANGES & SUMMARY TABLE -->
+<h3>2. What Other Changes Were Made and Why?</h3>
+
+<h4>A. Shared Geometric Augmentation (<span class="code-inline">apply_shared_geometric_transform</span>)</h4>
+<ul>
+  <li><strong>What was changed:</strong> If a training radiograph undergoes random horizontal flip ($p=0.5$) or random rotation ($\pm 15^\circ$), the <strong>exact same geometric transformation</strong> is applied to both Branch A and Branch B simultaneously.</li>
+  <li><strong>Why:</strong> In naive pipelines where PyTorch transforms run independently, Branch A would receive a flipped radiograph (bone pointing left) while Branch B would extract classical features from an unflipped radiograph (bone pointing right). This spatial discrepancy creates an irreconcilable conflict when the fusion layer concatenates the features. Our shared transform preserves strict spatial alignment.</li>
+</ul>
+
+<h4>B. Removing Brightness and Contrast Shortcuts from Classical Features</h4>
+<ul>
+  <li><strong>What was changed:</strong> We removed raw image mean intensity and standard deviation from the 64-dimensional feature vector, replacing them with <strong>axial circular orientation statistics ($2	heta$ doubling)</strong> and <strong>spatial edge heterogeneity</strong>.</li>
+  <li><strong>Why:</strong> In exploratory data analysis, we found MRI scans were systematically darker than X-rays, and different hospital scanners produced varying exposures. If raw brightness is present in the feature vector, machine learning models learn a trivial shortcut (e.g., classifying an image as <em>Comminuted</em> purely because it is dark, rather than recognizing bone fragmentation). Forcing CLAHE contrast equalization and pure geometric descriptors ensures the classical branch learns genuine fracture features.</li>
+</ul>
+
+<h4>C. Solving Cross-Split Leakage via Dihedral Perceptual Hashing</h4>
+<ul>
+  <li><strong>What was changed:</strong> Replaced naive filename splitting (<span class="code-inline">filename.split('.rf.')[0]</span>) with <strong>dihedral <span class="code-inline">pHash</span> + <span class="code-inline">dHash</span> clustering at Hamming distance ≤ 10 bits</strong>.</li>
+  <li><strong>Why:</strong>
+    <ol>
+      <li>Roboflow flattened separate class folders numbered <span class="code-inline">1.jpg..225.jpg</span> into a single directory. Consequently, unrelated radiographs from different classes shared the same prefix (<span class="code-inline">225_jpg</span> had both Segmental and Oblique Displaced images from different patients).</li>
+      <li>Roboflow's random partition placed augmented variants (flips, rotations) of the exact same bone in both train and test (<strong>40.82% leakage</strong>). Evaluating on training duplicates produces false, inflated test accuracy. Our composite grouping guaranteed <strong>0.00% leakage</strong>.</li>
+    </ol>
+  </li>
+</ul>
+
+<h4>D. Train-Only Parameter Fitting with Cryptographic Provenance</h4>
+<ul>
+  <li><strong>What was changed:</strong> Channel normalization statistics (<span class="code-inline">mean = [0.2555, 0.2555, 0.2555]</span>, <span class="code-inline">std = [0.2594, 0.2594, 0.2596]</span>) and the 64-dimensional <span class="code-inline">StandardScaler</span> are fitted <strong>strictly on the 857 training images</strong>. Cryptographic SHA-256 provenance hashes are saved in <span class="code-inline">edge_feature_scaler_provenance.json</span>.</li>
+  <li><strong>Why:</strong> Fitting scalers or computing normalization across the whole dataset (Train + Valid + Test) constitutes <strong>Data Snooping / Lookahead Bias</strong>. Test data must remain completely unseen.</li>
+</ul>
+
+<h4>E. Correcting Pseudoreplication in Statistical Hypothesis Testing</h4>
+<ul>
+  <li><strong>What was changed:</strong> In <span class="code-inline">verify_cv_hypothesis.py</span>, instead of running tests on all 1,227 augmented X-ray images, features were aggregated to their <strong>496 independent source clusters</strong> for 10,000 permutation tests with Holm and Benjamini-Hochberg FDR corrections.</li>
+  <li><strong>Why:</strong> Testing on augmented copies violates the independent observation assumption (pseudoreplication), artificially inflating statistical significance by up to <strong>15 million times</strong> ($p = 6.89 	imes 10^{-17}$ vs true cluster $p = 1.06 	imes 10^{-9}$). Aggregating to cluster medians ensures scientific validity.</li>
+</ul>
+
+<h4>F. Integrating Class-Weighted Focal Loss ($\gamma = 2.0$)</h4>
+<ul>
+  <li><strong>What was changed:</strong> Implemented <span class="code-inline">FocalLoss(alpha=class_weights, gamma=2.0)</span> to supersede standard Cross-Entropy.</li>
+  <li><strong>Why:</strong> The dataset has severe class imbalance (<span class="code-inline">Transverse Displaced</span> has 568 images vs <span class="code-inline">Linear</span> with 22 and <span class="code-inline">Segmental</span> with 8). Standard Cross-Entropy allows easy majority-class samples to dominate gradient updates; Focal Loss down-weights easy examples and forces the model to focus on difficult minority fractures.</li>
+</ul>
+
+<h2>PART 3: Architectural Comparison & Summary Table</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Previous / Naive Approach</th>
+      <th>Corrected Phase 1 Implementation</th>
+      <th>Scientific / Engineering Rationale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Deep Input Shape</strong></td>
+      <td>Variable / unaligned</td>
+      <td><strong><span class="code-inline">torch.float32 [Batch, 3, 224, 224]</span></strong></td>
+      <td>Allows instant plug-and-play with pretrained ImageNet CNN backbones without re-initializing layer 1 weights.</td>
+    </tr>
+    <tr>
+      <td><strong>Classical Input Shape</strong></td>
+      <td>Resized / distorted</td>
+      <td><strong>Native (640 × 640) Grayscale + CLAHE</strong></td>
+      <td>Preserves high-frequency cortical fracture lines and hairline cracks that CNN downsampling blurs.</td>
+    </tr>
+    <tr>
+      <td><strong>Data Augmentation</strong></td>
+      <td>Independent random transforms</td>
+      <td><strong><span class="code-inline">apply_shared_geometric_transform</span></strong></td>
+      <td>Guarantees exact geometric and spatial alignment between the deep stream and classical stream.</td>
+    </tr>
+    <tr>
+      <td><strong>Duplicate Grouping</strong></td>
+      <td>Filename prefix <span class="code-inline">base_id</span></td>
+      <td><strong>Dihedral <span class="code-inline">pHash</span> + <span class="code-inline">dHash</span> ≤ 10 + Union-Find</strong></td>
+      <td>Eliminates 40.82% cross-split leakage and clusters 657 true source radiographs.</td>
+    </tr>
+    <tr>
+      <td><strong>Scaler Fitting</strong></td>
+      <td>Fit on whole dataset</td>
+      <td><strong>Train-Split Only ($N=857$) + SHA-256 Provenance</strong></td>
+      <td>Eliminates data snooping / lookahead bias into validation and test sets.</td>
+    </tr>
+    <tr>
+      <td><strong>Statistical Testing</strong></td>
+      <td>Image-level testing ($N=1,227$)</td>
+      <td><strong>Cluster-level testing ($N=496$) + 10k Permutations</strong></td>
+      <td>Eliminates pseudoreplication and Type I error inflation.</td>
+    </tr>
+    <tr>
+      <td><strong>Loss Function</strong></td>
+      <td>Standard Cross-Entropy</td>
+      <td><strong>Class-Weighted Focal Loss ($\gamma=2.0$)</strong></td>
+      <td>Prevents majority classes (Transverse Displaced) from dominating rare classes (Linear, Segmental).</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="footer-note">
+  <span>Course CSE438 • Project 12: FractureFuseNet • Phase 1 Technical Explanation</span>
+  <span>Human Bone Fractures Multi-modal Image Dataset (HBFMID) • Published November 2026</span>
+</div>
+
+</body>
+</html>
