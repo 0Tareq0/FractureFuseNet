@@ -1,0 +1,34 @@
+{
+  "split_manifests": {
+    "train": {
+      "file": "train_manifest.csv",
+      "sha256": "58a5ca911c2fedbe3ecaa073403d69465fd420e68df68ae8ff11865b9cdee18d",
+      "md5": "bcf794169678ad5c1c1f499459bf7659",
+      "num_records": 857
+    },
+    "valid": {
+      "file": "val_manifest.csv",
+      "sha256": "df2f328539934186b9dd27adc425e5f2511451c86a457b97c6a9a1499318e26a",
+      "md5": "96df085f8f867c26c3a04410293fc3c5",
+      "num_records": 285
+    },
+    "test": {
+      "file": "test_manifest.csv",
+      "sha256": "516815dd3fdc1a981991425bfcbfe8eebbfc45b06bf23d66aa7aef4fc29a0825",
+      "md5": "a97f099436b2ebde31686511fe830d3e",
+      "num_records": 287
+    },
+    "excluded": {
+      "file": "excluded_manifest.csv",
+      "sha256": "dee2114e9434738d2c2ee1263f1559392f4c72d57160964a14d60ff3973685e8",
+      "md5": "87f163614c8aeb33030fd3fae5aeadf2",
+      "num_records": 110
+    }
+  },
+  "master_metadata": {
+    "file": "dataset_metadata_cleaned.csv",
+    "sha256": "8a75dc64ebe826b3a08ba6a1053a458f5e65528b9a61b17e6bae550d814f6771",
+    "md5": "9ba744d59398b5baa079031d4e746728",
+    "total_records": 1539
+  }
+}

@@ -1,0 +1,91 @@
+class_name,metric,metric_label,n_clusters,n_images,cluster_median,cluster_iqr,cluster_mean,cluster_std,cluster_min,cluster_max
+Comminuted,edge_density_high_pct,High Canny Edge Density (%),24,56,2.1355,0.5681,2.1533,0.5938,1.3621,3.4436
+Greenstick,edge_density_high_pct,High Canny Edge Density (%),40,77,1.321,0.9906,1.2853,0.79,0.2361,3.4187
+Healthy,edge_density_high_pct,High Canny Edge Density (%),27,64,2.9609,0.5012,3.0291,0.603,1.2405,4.4033
+Linear,edge_density_high_pct,High Canny Edge Density (%),8,19,3.3759,1.3499,3.3511,0.9782,2.0588,4.7432
+Oblique Displaced,edge_density_high_pct,High Canny Edge Density (%),115,282,1.99,0.9597,1.923,0.8763,0.4521,4.4867
+Oblique,edge_density_high_pct,High Canny Edge Density (%),19,52,1.7649,0.8071,1.677,0.4723,0.9824,2.6497
+Segmental,edge_density_high_pct,High Canny Edge Density (%),3,8,0.823,0.7253,1.2862,0.8289,0.7925,2.2432
+Spiral,edge_density_high_pct,High Canny Edge Density (%),35,74,1.5195,1.083,1.5342,0.6401,0.5084,2.541
+Transverse Displaced,edge_density_high_pct,High Canny Edge Density (%),193,502,1.9822,1.3723,1.9876,0.9843,0.3652,4.7782
+Transverse,edge_density_high_pct,High Canny Edge Density (%),32,93,2.2334,1.8917,2.5958,1.6152,0.5601,6.3726
+Comminuted,edge_density_low_pct,Low Canny Edge Density (%),24,56,5.1932,1.4431,5.5032,1.4978,3.2646,9.0099
+Greenstick,edge_density_low_pct,Low Canny Edge Density (%),40,77,3.4142,1.3475,4.0033,1.9207,1.3826,8.1414
+Healthy,edge_density_low_pct,Low Canny Edge Density (%),27,64,7.4731,2.1496,7.5021,1.3286,5.3848,9.7
+Linear,edge_density_low_pct,Low Canny Edge Density (%),8,19,9.7869,3.7051,8.6397,3.1074,4.0557,12.1714
+Oblique Displaced,edge_density_low_pct,Low Canny Edge Density (%),115,282,5.2202,2.553,5.3584,2.0953,1.4055,11.4735
+Oblique,edge_density_low_pct,Low Canny Edge Density (%),19,52,4.5642,2.3226,5.0011,1.4868,3.2095,8.2195
+Segmental,edge_density_low_pct,Low Canny Edge Density (%),3,8,1.9731,2.3532,3.4463,2.6768,1.8297,6.5361
+Spiral,edge_density_low_pct,Low Canny Edge Density (%),35,74,3.1689,1.2756,3.6263,1.2506,2.1426,7.7581
+Transverse Displaced,edge_density_low_pct,Low Canny Edge Density (%),193,502,4.9482,3.1414,5.0909,2.2893,1.3296,14.3884
+Transverse,edge_density_low_pct,Low Canny Edge Density (%),32,93,6.036,4.2761,6.1542,3.0576,1.1804,12.4186
+Comminuted,hough_line_count,Detected Hough Line Count,24,56,115.0,69.75,118.25,58.379,39.0,234.0
+Greenstick,hough_line_count,Detected Hough Line Count,40,77,42.0,58.5,61.275,65.6625,5.0,302.0
+Healthy,hough_line_count,Detected Hough Line Count,27,64,188.5,123.5,199.7037,94.3432,43.0,408.9999
+Linear,hough_line_count,Detected Hough Line Count,8,19,262.0,155.75,276.875,137.7878,101.0,490.0
+Oblique Displaced,hough_line_count,Detected Hough Line Count,115,282,82.0,78.5,98.3,72.698,7.0,382.0001
+Oblique,hough_line_count,Detected Hough Line Count,19,52,73.5,43.0,72.8947,34.5706,27.0,144.5
+Segmental,hough_line_count,Detected Hough Line Count,3,8,20.5,38.5,44.5,43.7521,18.0,95.0
+Spiral,hough_line_count,Detected Hough Line Count,35,74,60.0,56.25,61.9143,34.3718,13.0,127.0
+Transverse Displaced,hough_line_count,Detected Hough Line Count,193,502,86.0,108.0,106.2927,84.2788,10.0,494.0
+Transverse,hough_line_count,Detected Hough Line Count,32,93,107.75,155.375,160.7344,173.9333,16.5,698.0
+Comminuted,hough_line_density_10k,Line Density (/10k px),24,56,2.8076,1.7029,2.887,1.4253,0.9521,5.7129
+Greenstick,hough_line_density_10k,Line Density (/10k px),40,77,1.0254,1.4282,1.496,1.6031,0.1221,7.373
+Healthy,hough_line_density_10k,Line Density (/10k px),27,64,4.6021,3.0151,4.8756,2.3033,1.0498,9.9853
+Linear,hough_line_density_10k,Line Density (/10k px),8,19,6.3965,3.8025,6.7596,3.364,2.4658,11.9629
+Oblique Displaced,hough_line_density_10k,Line Density (/10k px),115,282,2.002,1.9165,2.3999,1.7749,0.1709,9.3262
+Oblique,hough_line_density_10k,Line Density (/10k px),19,52,1.7944,1.0498,1.7797,0.844,0.6592,3.5278
+Segmental,hough_line_density_10k,Line Density (/10k px),3,8,0.5005,0.9399,1.0864,1.0682,0.4395,2.3193
+Spiral,hough_line_density_10k,Line Density (/10k px),35,74,1.4648,1.3733,1.5116,0.8392,0.3174,3.1006
+Transverse Displaced,hough_line_density_10k,Line Density (/10k px),193,502,2.0996,2.6367,2.595,2.0576,0.2441,12.0605
+Transverse,hough_line_density_10k,Line Density (/10k px),32,93,2.6306,3.7933,3.9242,4.2464,0.4028,17.041
+Comminuted,avg_line_length_px,Average Line Length (px),24,56,48.5442,12.5481,52.2601,10.3445,40.8096,79.9466
+Greenstick,avg_line_length_px,Average Line Length (px),40,77,62.29,22.5803,67.8481,19.918,43.1023,123.0107
+Healthy,avg_line_length_px,Average Line Length (px),27,64,48.5993,11.3396,51.144,7.4324,41.729,74.5752
+Linear,avg_line_length_px,Average Line Length (px),8,19,51.478,5.6559,50.0914,3.3507,45.4665,53.5312
+Oblique Displaced,avg_line_length_px,Average Line Length (px),115,282,58.495,22.5957,61.4536,15.7126,40.7477,117.2602
+Oblique,avg_line_length_px,Average Line Length (px),19,52,52.755,19.8607,60.2983,20.2197,42.7986,120.3592
+Segmental,avg_line_length_px,Average Line Length (px),3,8,111.9122,41.3288,93.1235,44.4166,42.4004,125.0579
+Spiral,avg_line_length_px,Average Line Length (px),35,74,76.3196,33.3302,84.5842,23.5263,56.4525,151.4674
+Transverse Displaced,avg_line_length_px,Average Line Length (px),193,502,54.1926,17.5998,59.1539,15.5127,39.5674,123.7047
+Transverse,avg_line_length_px,Average Line Length (px),32,93,58.9656,38.3782,72.7084,28.0762,42.7338,144.4383
+Comminuted,sobel_grad_mag_mean,Mean Sobel Gradient Mag,24,56,27.2759,5.7955,26.6769,4.4984,17.9339,36.0357
+Greenstick,sobel_grad_mag_mean,Mean Sobel Gradient Mag,40,77,20.7338,10.4426,20.3795,6.7914,7.7686,35.153
+Healthy,sobel_grad_mag_mean,Mean Sobel Gradient Mag,27,64,33.3029,5.7807,32.5006,3.9461,24.8431,41.7398
+Linear,sobel_grad_mag_mean,Mean Sobel Gradient Mag,8,19,37.5235,11.2817,33.8744,7.8911,22.0136,41.3611
+Oblique Displaced,sobel_grad_mag_mean,Mean Sobel Gradient Mag,115,282,27.2225,7.3612,26.9755,7.5931,13.4917,49.5113
+Oblique,sobel_grad_mag_mean,Mean Sobel Gradient Mag,19,52,22.5069,2.7903,23.1772,3.8253,18.4174,31.9949
+Segmental,sobel_grad_mag_mean,Mean Sobel Gradient Mag,3,8,19.4259,6.3293,23.4293,7.2167,19.1018,31.7604
+Spiral,sobel_grad_mag_mean,Mean Sobel Gradient Mag,35,74,21.7229,5.0839,22.3977,4.4127,15.9614,32.3902
+Transverse Displaced,sobel_grad_mag_mean,Mean Sobel Gradient Mag,193,502,24.9417,8.7706,25.5167,7.0551,12.3223,46.5996
+Transverse,sobel_grad_mag_mean,Mean Sobel Gradient Mag,32,93,29.5914,9.8473,29.6511,8.9837,13.4552,50.1079
+Comminuted,orientation_entropy,Orientation Entropy,24,56,0.9502,0.0456,0.944,0.0264,0.8977,0.9822
+Greenstick,orientation_entropy,Orientation Entropy,40,77,0.9343,0.0809,0.9284,0.0468,0.8357,0.9891
+Healthy,orientation_entropy,Orientation Entropy,27,64,0.9646,0.0356,0.9585,0.0226,0.9017,0.9847
+Linear,orientation_entropy,Orientation Entropy,8,19,0.9828,0.0268,0.9604,0.0442,0.8838,0.9904
+Oblique Displaced,orientation_entropy,Orientation Entropy,115,282,0.9511,0.0603,0.9354,0.0627,0.6407,0.9927
+Oblique,orientation_entropy,Orientation Entropy,19,52,0.9491,0.0401,0.9317,0.0667,0.7372,0.9806
+Segmental,orientation_entropy,Orientation Entropy,3,8,0.9421,0.0233,0.9444,0.0233,0.9223,0.9688
+Spiral,orientation_entropy,Orientation Entropy,35,74,0.9254,0.053,0.9263,0.0319,0.8719,0.9726
+Transverse Displaced,orientation_entropy,Orientation Entropy,193,502,0.9627,0.0392,0.9505,0.0351,0.808,0.9938
+Transverse,orientation_entropy,Orientation Entropy,32,93,0.9577,0.1112,0.91,0.0965,0.6297,0.9909
+Comminuted,circular_dispersion,Circular Dispersion,24,56,0.468,0.3898,0.4696,0.2219,0.1124,0.7734
+Greenstick,circular_dispersion,Circular Dispersion,40,77,0.5377,0.1481,0.475,0.2073,0.0324,0.797
+Healthy,circular_dispersion,Circular Dispersion,27,64,0.563,0.256,0.596,0.1498,0.3761,0.8622
+Linear,circular_dispersion,Circular Dispersion,8,19,0.7273,0.143,0.7011,0.1098,0.5284,0.8037
+Oblique Displaced,circular_dispersion,Circular Dispersion,115,282,0.6509,0.2768,0.6314,0.1945,0.1054,0.9218
+Oblique,circular_dispersion,Circular Dispersion,19,52,0.4781,0.1183,0.4645,0.1321,0.2139,0.6811
+Segmental,circular_dispersion,Circular Dispersion,3,8,0.5897,0.1237,0.6181,0.1261,0.5085,0.756
+Spiral,circular_dispersion,Circular Dispersion,35,74,0.465,0.356,0.4796,0.2411,0.1362,0.932
+Transverse Displaced,circular_dispersion,Circular Dispersion,193,502,0.5535,0.2858,0.5411,0.1942,0.0564,0.9766
+Transverse,circular_dispersion,Circular Dispersion,32,93,0.5118,0.2273,0.5343,0.2031,0.1237,0.8629
+Comminuted,spatial_edge_heterogeneity_pct,Spatial Heterogeneity (%),24,56,2.4216,0.8303,2.2151,0.6965,0.893,3.4073
+Greenstick,spatial_edge_heterogeneity_pct,Spatial Heterogeneity (%),40,77,1.142,1.2689,1.4827,0.9087,0.479,4.0082
+Healthy,spatial_edge_heterogeneity_pct,Spatial Heterogeneity (%),27,64,2.5092,2.2151,2.8877,1.247,1.3395,4.9546
+Linear,spatial_edge_heterogeneity_pct,Spatial Heterogeneity (%),8,19,3.6685,1.1155,3.7168,0.9003,2.457,5.1285
+Oblique Displaced,spatial_edge_heterogeneity_pct,Spatial Heterogeneity (%),115,282,1.5639,1.1977,1.636,0.7584,0.3933,3.4102
+Oblique,spatial_edge_heterogeneity_pct,Spatial Heterogeneity (%),19,52,1.8048,0.7584,1.7211,0.4715,0.927,2.5224
+Segmental,spatial_edge_heterogeneity_pct,Spatial Heterogeneity (%),3,8,0.8059,0.4739,1.1039,0.5396,0.779,1.7268
+Spiral,spatial_edge_heterogeneity_pct,Spatial Heterogeneity (%),35,74,1.386,0.7469,1.3814,0.5751,0.4696,2.5661
+Transverse Displaced,spatial_edge_heterogeneity_pct,Spatial Heterogeneity (%),193,502,1.7226,1.3669,1.8544,0.9709,0.3933,5.5847
+Transverse,spatial_edge_heterogeneity_pct,Spatial Heterogeneity (%),32,93,2.0129,1.575,2.0135,1.2924,0.5668,5.4613

@@ -1,0 +1,5 @@
+split_1,split_2,filename_overlap,base_id_overlap,dup_group_id_overlap,group_id_overlap,leakage_status
+train,valid,0,0,0,0,LEAK_FREE (PASSED)
+train,test,0,0,0,0,LEAK_FREE (PASSED)
+valid,test,0,0,0,0,LEAK_FREE (PASSED)
+active_all,excluded,0,11,1,11,SEPARATED (PASSED)

@@ -1,0 +1,71 @@
+{
+  "verified_split": "stratified_group_split",
+  "random_seed": 42,
+  "n_splits": 5,
+  "pairwise_overlap_tests": [
+    {
+      "split_1": "train",
+      "split_2": "valid",
+      "filename_overlap": 0,
+      "base_id_overlap": 0,
+      "dup_group_id_overlap": 0,
+      "group_id_overlap": 0,
+      "leakage_status": "LEAK_FREE (PASSED)"
+    },
+    {
+      "split_1": "train",
+      "split_2": "test",
+      "filename_overlap": 0,
+      "base_id_overlap": 0,
+      "dup_group_id_overlap": 0,
+      "group_id_overlap": 0,
+      "leakage_status": "LEAK_FREE (PASSED)"
+    },
+    {
+      "split_1": "valid",
+      "split_2": "test",
+      "filename_overlap": 0,
+      "base_id_overlap": 0,
+      "dup_group_id_overlap": 0,
+      "group_id_overlap": 0,
+      "leakage_status": "LEAK_FREE (PASSED)"
+    },
+    {
+      "split_1": "active_all",
+      "split_2": "excluded",
+      "filename_overlap": 0,
+      "base_id_overlap": 11,
+      "dup_group_id_overlap": 1,
+      "group_id_overlap": 11,
+      "leakage_status": "SEPARATED (PASSED)"
+    }
+  ],
+  "original_roboflow_leakage_benchmark": [
+    {
+      "split_1": "train",
+      "split_2": "valid",
+      "leaked_base_ids": 70,
+      "leaked_dup_groups": 51
+    },
+    {
+      "split_1": "train",
+      "split_2": "test",
+      "leaked_base_ids": 47,
+      "leaked_dup_groups": 34
+    },
+    {
+      "split_1": "valid",
+      "split_2": "test",
+      "leaked_base_ids": 19,
+      "leaked_dup_groups": 5
+    }
+  ],
+  "leakage_free_proof": {
+    "mathematical_group_definition": "group_id = base_id U dup_group_id (Union-Find connected component)",
+    "base_id_cross_split_leakage": 0,
+    "dup_group_id_cross_split_leakage": 0,
+    "composite_group_id_cross_split_leakage": 0,
+    "filename_cross_split_leakage": 0,
+    "excluded_record_contamination": 0
+  }
+}

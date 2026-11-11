@@ -1,0 +1,45 @@
+{
+  "dataset_name": "HBFMID",
+  "random_seed": 42,
+  "n_splits": 5,
+  "total_records": 1539,
+  "included_records": 1429,
+  "excluded_records": 110,
+  "jensen_shannon_divergence_to_overall": {
+    "train": 0.0072,
+    "valid": 0.0279,
+    "test": 0.0519
+  },
+  "splits": {
+    "train": {
+      "images": 857,
+      "pct_of_included": 59.97,
+      "unique_base_ids": 143,
+      "unique_dup_groups": 362,
+      "unique_composite_groups": 141,
+      "classes_present": 10,
+      "xray_images": 743,
+      "mri_images": 114
+    },
+    "valid": {
+      "images": 285,
+      "pct_of_included": 19.94,
+      "unique_base_ids": 47,
+      "unique_dup_groups": 126,
+      "unique_composite_groups": 46,
+      "classes_present": 10,
+      "xray_images": 240,
+      "mri_images": 45
+    },
+    "test": {
+      "images": 287,
+      "pct_of_included": 20.08,
+      "unique_base_ids": 48,
+      "unique_dup_groups": 124,
+      "unique_composite_groups": 48,
+      "classes_present": 9,
+      "xray_images": 244,
+      "mri_images": 43
+    }
+  }
+}

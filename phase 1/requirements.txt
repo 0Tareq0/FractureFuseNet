@@ -1,0 +1,17 @@
+# FractureFuseNet: Multi-Modal Late Fusion of Deep Radiographic Features and Classical Edge/Hough Fracture-Line Detection
+# Core Dependency Manifest
+# Verified on Python 3.11.0 (Windows / Linux)
+
+numpy>=1.24.0,<3.0.0
+scipy>=1.10.0,<2.0.0
+pandas>=2.0.0,<3.0.0
+torch>=2.0.0
+torchvision>=0.15.0
+opencv-python>=4.8.0
+Pillow>=9.5.0
+scikit-learn>=1.3.0,<2.0.0
+joblib>=1.3.0
+matplotlib>=3.7.0
+pyyaml>=6.0.0
+imagehash>=4.3.0
+openpyxl>=3.1.0

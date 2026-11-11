@@ -1,0 +1,10 @@
+metric,metric_label,image_level_n_h,image_level_n_f,image_level_p,image_level_cliff_delta,cluster_level_n_h,cluster_level_n_f,cluster_level_p,cluster_level_cliff_delta,p_value_inflation_ratio,conclusion
+edge_density_high_pct,High Canny Edge Density (%),64,1163,6.887314240055911e-17,-0.6192,27,469,1.056958554551563e-09,-0.6979,15346454.622389678,Degrees of freedom artificially inflated by 8.2x via Roboflow augmentations
+edge_density_low_pct,Low Canny Edge Density (%),64,1163,3.0692737714971184e-15,-0.585,27,469,1.4533806824413462e-08,-0.6483,4735259.187167334,Degrees of freedom artificially inflated by 8.2x via Roboflow augmentations
+hough_line_count,Detected Hough Line Count,64,1163,7.82877784949641e-14,-0.5542,27,469,3.31121515817213e-08,-0.6319,422954.2876076278,Degrees of freedom artificially inflated by 8.2x via Roboflow augmentations
+hough_line_density_10k,Line Density (/10k px),64,1163,7.82877784949641e-14,-0.5542,27,469,3.31121515817213e-08,-0.6319,422954.2876076278,Degrees of freedom artificially inflated by 8.2x via Roboflow augmentations
+avg_line_length_px,Average Line Length (px),64,1163,3.598514537043652e-08,0.4086,27,469,0.00036530954653328734,0.4077,10151.676275661406,Degrees of freedom artificially inflated by 8.2x via Roboflow augmentations
+sobel_grad_mag_mean,Mean Sobel Gradient Mag,64,1163,3.0870853211373065e-12,-0.5172,27,469,5.1903928277519773e-08,-0.6228,16813.247085246727,Degrees of freedom artificially inflated by 8.2x via Roboflow augmentations
+orientation_entropy,Orientation Entropy,64,1163,0.0897649793765505,-0.1258,27,469,0.10235618929384566,-0.1869,1.1402686215130395,Degrees of freedom artificially inflated by 8.2x via Roboflow augmentations
+circular_dispersion,Circular Dispersion,64,1163,0.828601287233211,-0.0161,27,469,0.4011595091316136,-0.0961,0.48414058161933154,Degrees of freedom artificially inflated by 8.2x via Roboflow augmentations
+spatial_edge_heterogeneity_pct,Spatial Heterogeneity (%),64,1163,8.141952926229822e-11,-0.4819,27,469,7.729280816700592e-06,-0.5116,94931.53407704213,Degrees of freedom artificially inflated by 8.2x via Roboflow augmentations

@@ -1,0 +1,114 @@
+{
+  "kruskal_wallis_9class_xray": {
+    "edge_density_high_pct": {
+      "kruskal_h": 82.371,
+      "p_value": 1.6270863746915046e-14,
+      "epsilon_sq": 0.1674,
+      "n_clusters": 493
+    },
+    "edge_density_low_pct": {
+      "kruskal_h": 78.273,
+      "p_value": 1.0876185103337521e-13,
+      "epsilon_sq": 0.1591,
+      "n_clusters": 493
+    },
+    "hough_line_count": {
+      "kruskal_h": 75.898,
+      "p_value": 3.2603634531297615e-13,
+      "epsilon_sq": 0.1543,
+      "n_clusters": 493
+    },
+    "hough_line_density_10k": {
+      "kruskal_h": 75.898,
+      "p_value": 3.2603634531297615e-13,
+      "epsilon_sq": 0.1543,
+      "n_clusters": 493
+    },
+    "avg_line_length_px": {
+      "kruskal_h": 77.636,
+      "p_value": 1.4603652051380118e-13,
+      "epsilon_sq": 0.1578,
+      "n_clusters": 493
+    },
+    "sobel_grad_mag_mean": {
+      "kruskal_h": 80.066,
+      "p_value": 4.7412646366069755e-14,
+      "epsilon_sq": 0.1627,
+      "n_clusters": 493
+    },
+    "orientation_entropy": {
+      "kruskal_h": 28.406,
+      "p_value": 0.0004029580564274052,
+      "epsilon_sq": 0.0577,
+      "n_clusters": 493
+    },
+    "circular_dispersion": {
+      "kruskal_h": 43.707,
+      "p_value": 6.461873397444097e-07,
+      "epsilon_sq": 0.0888,
+      "n_clusters": 493
+    },
+    "spatial_edge_heterogeneity_pct": {
+      "kruskal_h": 60.389,
+      "p_value": 3.910455684835122e-10,
+      "epsilon_sq": 0.1227,
+      "n_clusters": 493
+    }
+  },
+  "kruskal_wallis_10class_xray": {
+    "edge_density_high_pct": {
+      "kruskal_h": 83.684,
+      "p_value": 2.986874773516508e-14,
+      "epsilon_sq": 0.1691,
+      "n_clusters": 496
+    },
+    "edge_density_low_pct": {
+      "kruskal_h": 79.68,
+      "p_value": 1.8704454842244904e-13,
+      "epsilon_sq": 0.161,
+      "n_clusters": 496
+    },
+    "hough_line_count": {
+      "kruskal_h": 78.23,
+      "p_value": 3.6276239392675546e-13,
+      "epsilon_sq": 0.158,
+      "n_clusters": 496
+    },
+    "hough_line_density_10k": {
+      "kruskal_h": 78.23,
+      "p_value": 3.6276239392675546e-13,
+      "epsilon_sq": 0.158,
+      "n_clusters": 496
+    },
+    "avg_line_length_px": {
+      "kruskal_h": 77.802,
+      "p_value": 4.41102198290289e-13,
+      "epsilon_sq": 0.1572,
+      "n_clusters": 496
+    },
+    "sobel_grad_mag_mean": {
+      "kruskal_h": 80.288,
+      "p_value": 1.416810290009494e-13,
+      "epsilon_sq": 0.1622,
+      "n_clusters": 496
+    },
+    "orientation_entropy": {
+      "kruskal_h": 28.603,
+      "p_value": 0.0007557577454374849,
+      "epsilon_sq": 0.0578,
+      "n_clusters": 496
+    },
+    "circular_dispersion": {
+      "kruskal_h": 44.189,
+      "p_value": 1.3028351138567813e-06,
+      "epsilon_sq": 0.0893,
+      "n_clusters": 496
+    },
+    "spatial_edge_heterogeneity_pct": {
+      "kruskal_h": 62.351,
+      "p_value": 4.71152066192848e-10,
+      "epsilon_sq": 0.126,
+      "n_clusters": 496
+    }
+  }
+}

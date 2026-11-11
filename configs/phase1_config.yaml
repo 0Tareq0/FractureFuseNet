@@ -1,0 +1,93 @@
+# ==============================================================================
+# FractureFuseNet: Central Phase 1 Pipeline Configuration
+# ==============================================================================
+
+project:
+  name: "FractureFuseNet"
+  phase: 1
+  description: "Data Preprocessing, Audit, Leakage-Free Splitting, and Feature Extraction"
+  random_seed: 42
+
+dataset:
+  raw_dir: "Human Bone Fractures Multi-modal Image Dataset (HBFMID)/Human Bone Fractures Multi-modal Image Dataset (HBFMID)/Bone Fractures Detection"
+  fallback_dirs:
+    - "Bone Fractures Detection"
+    - "../Human Bone Fractures Multi-modal Image Dataset (HBFMID)/Human Bone Fractures Multi-modal Image Dataset (HBFMID)/Bone Fractures Detection"
+  image_size: [640, 640]
+  expected_channels: 3
+  expected_format: "RGB"
+  num_classes: 10
+  class_names:
+    - "Comminuted"
+    - "Greenstick"
+    - "Healthy"
+    - "Linear"
+    - "Oblique Displaced"
+    - "Oblique"
+    - "Segmental"
+    - "Spiral"
+    - "Transverse Displaced"
+    - "Transverse"
+
+paths:
+  data_dir: "phase 1/data"
+  figures_dir: "phase 1/figures"
+  manifests_dir: "phase 1/data/manifests"
+  metadata_csv: "phase 1/data/dataset_metadata_cleaned.csv"
+  unaugmented_features_npz: "phase 1/data/unaugmented_edge_features.npz"
+  edge_scaler_joblib: "phase 1/data/edge_feature_scaler.joblib"
+  edge_scaler_provenance_json: "phase 1/data/edge_feature_scaler_provenance.json"
+  train_pixel_stats_json: "phase 1/data/train_pixel_stats.json"
+
+grouping:
+  phash_threshold: 10
+  dhash_threshold: 10
+  flip_invariance: true
+  union_find: true
+
+splitting:
+  strategy: "StratifiedGroupKFold"
+  n_splits: 5
+  train_folds: [0, 2, 4]
+  valid_folds: [1]
+  test_folds: [3]
+  target_ratios:
+    train: 0.60
+    valid: 0.20
+    test: 0.20
+  tolerance: 0.05
+
+preprocessing:
+  clahe_clip_limit: 2.0
+  clahe_tile_grid: [8, 8]
+  gaussian_blur_ksize: [3, 3]
+  canny_low_thresh: [30, 100]
+  canny_high_thresh: [75, 200]
+  hough_rho: 1
+  hough_theta_deg: 1.0
+  hough_threshold: 40
+  hough_min_line_length: 25
+  hough_max_line_gap: 10
+  deep_input_size: [224, 224]
+  deep_norm_mode: "train_dataset"
+
+statistics:
+  n_permutations: 10000
+  alpha: 0.05
+  fdr_q: 0.05
+  key_metrics:
+    - "edge_density_high_pct"
+    - "edge_density_low_pct"
+    - "hough_line_count"
+    - "hough_line_density_10k"
+    - "avg_line_length_px"
+    - "sobel_grad_mag_mean"
+    - "orientation_entropy"
+    - "circular_dispersion"
+    - "spatial_edge_heterogeneity_pct"
+
+dataloader:
+  batch_size: 16
+  num_workers: 0
+  pin_memory: false
+  shuffle_train: true

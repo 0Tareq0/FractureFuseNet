@@ -1,0 +1,10 @@
+metric,metric_label,xray_n_clusters,xray_median,xray_iqr,mri_n_clusters,mri_median,mri_iqr,median_diff_MRI_minus_Xray,mannwhitney_u,p_value,cliff_delta,cles_auc
+edge_density_high_pct,High Canny Edge Density (%),496,1.9778,1.2242,116,3.8385,2.092,1.8607,49153.0,1.33022992229953e-32,0.7086,0.8543
+edge_density_low_pct,Low Canny Edge Density (%),496,5.0574,3.2049,116,8.8011,6.3411,3.7438,47296.0,3.1873573665693703e-27,0.644,0.822
+hough_line_count,Detected Hough Line Count,496,85.5,98.75,116,244.5,234.75,159.0,47544.5,6.491816179159642e-28,0.6527,0.8263
+hough_line_density_10k,Line Density (/10k px),496,2.0874,2.4109,116,5.9692,5.7312,3.8818,47544.5,6.491816179159642e-28,0.6527,0.8263
+avg_line_length_px,Average Line Length (px),496,57.0676,21.4352,116,51.3882,9.8358,-5.6794,20718.0,2.6627048577017567e-06,-0.2798,0.3601
+sobel_grad_mag_mean,Mean Sobel Gradient Mag,496,25.5344,9.4319,116,42.5312,18.4702,16.9967,52586.0,7.013844452445026e-44,0.8279,0.914
+orientation_entropy,Orientation Entropy,496,0.9564,0.0528,116,0.9509,0.0538,-0.0055,26197.0,0.1337782590000625,-0.0894,0.4553
+circular_dispersion,Circular Dispersion,496,0.5662,0.2826,116,0.5422,0.4442,-0.024,27401.0,0.42540640765336135,-0.0475,0.4762
+spatial_edge_heterogeneity_pct,Spatial Heterogeneity (%),496,1.7247,1.3083,116,2.5739,1.5089,0.8492,43334.0,1.96188181009098e-17,0.5063,0.7532
